@@ -4,6 +4,7 @@
 
 let background;
 let cloud;
+let cloudTwo;
 let playerOnePlane;
 
 
@@ -17,7 +18,8 @@ function  getAssetsLevelOne() {
 
   var cloudImg = new Image();
   cloudImg.onload = function(){
-    cloud = new Entity(0, 0, GAME_WORLD_WIDTH , GAME_WORLD_HEIGHT, cloudImg);
+    cloud = new Entity(0, 0, GAME_WORLD_WIDTH , GAME_WORLD_HEIGHT, cloudImg, CLOUD_MOVEMENT_VELOCITY);
+    cloudTwo =  new Entity(GAME_WORLD_WIDTH, 0, GAME_WORLD_WIDTH , GAME_WORLD_HEIGHT, cloudImg, CLOUD_MOVEMENT_VELOCITY);
   }
   cloudImg.src = 'assets/clouds.png';
 

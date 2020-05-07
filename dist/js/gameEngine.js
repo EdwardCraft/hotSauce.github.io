@@ -6,7 +6,7 @@ var canvasctx;
 
 //  variables to setup the game engine
 var FPS = 60;
-var fps = 60;
+var fps = 30;
 var lastFrameTimeMs = 0; // last time the was run
 var maxFPS = FPS; // the maximun FPS we want to allow
 var framesThisSecond = 0;

@@ -11,6 +11,8 @@ class Level{
   update(delta){
 
     if(playerOnePlane !== undefined)playerOnePlane.updatePlayerOne(delta);
+    if(cloud !== undefined)cloud.updateClouds(delta);
+    if(cloudTwo !== undefined)cloudTwo.updateClouds(delta);
 
   }
 
@@ -19,7 +21,7 @@ class Level{
 		canvasctx.globalAlpha = 1;
     if(background !== undefined )background.render(canvas, canvasctx);
     if(cloud !== undefined)cloud.render(canvas, canvasctx);
-
+    if(cloudTwo !== undefined)cloudTwo.render(canvas, canvasctx);
 
 
     canvasctx.globalAlpha = 1;

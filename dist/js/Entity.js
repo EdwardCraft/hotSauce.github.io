@@ -53,6 +53,7 @@ class Entity {
 		this.width = width;
 		this.height = height;
 		this.asset = asset;
+    this.statingCloudTwoPosition = GAME_WORLD_WIDTH;
     this.movementVelocityX = velocity;
     this.movementVelocityY = velocity;
 	}
@@ -69,6 +70,16 @@ class Entity {
 
 
   }
+
+  updateClouds(delta){
+    if((this.postionX + this.width) <=  0){
+      this.postionX = this.statingCloudTwoPosition;
+    }
+    this.postionX -= this.movementVelocityX *  delta;
+
+  }
+
+
 
   render(canvas , ctx ){
 		ctx.drawImage(

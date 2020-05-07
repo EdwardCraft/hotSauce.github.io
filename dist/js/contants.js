@@ -28,10 +28,8 @@ var PLAYER_HEIGHT = 150;
 var PLAYER_MOVEMENT_VELOCITY = 0.5;
 
 
-
-
 /*Clouds movment*/
-var CLOUD_MOVEMENT_VELOCITY = 0;
+var CLOUD_MOVEMENT_VELOCITY = 0.1;
 
 
 /*Window position*/
