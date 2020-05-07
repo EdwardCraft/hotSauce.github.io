@@ -53,6 +53,7 @@ class Entity {
 		this.width = width;
 		this.height = height;
 		this.asset = asset;
+    this.startingXposition = postionX;
     this.statingCloudTwoPosition = GAME_WORLD_WIDTH;
     this.movementVelocityX = velocity;
     this.movementVelocityY = velocity;
@@ -72,13 +73,44 @@ class Entity {
   }
 
   updateClouds(delta){
-    if((this.postionX + this.width) <=  0){
+    if((this.postionX + (this.width)) <=  0){
       this.postionX = this.statingCloudTwoPosition;
     }
     this.postionX -= this.movementVelocityX *  delta;
 
   }
 
+  updateHotSouce(delta){
+    if((this.postionX + this.width ) <= 0 ){
+      this.getRandPositionYHotSouce();
+    }
+    this.postionX -= this.movementVelocityX *  delta;
+
+  }
+
+  getRandPositionYHotSouce(){
+    var rand =  Math.floor(Math.random() * 3) + 1;
+
+    switch (rand) {
+      case 1:
+          this.postionY = 50;
+          this.postionX  =  this.startingXposition;
+        break;
+      case 2:
+          this.postionY = (GAME_WORLD_HEIGHT - this.height) - 50;
+          this.postionX  =  this.startingXposition;
+        break;
+      case 3:
+          this.postionY  = (GAME_WORLD_HEIGHT / 2) - 50;
+          this.postionX  =  this.startingXposition;
+        break;
+      case 4:
+
+        break;
+      default:
+
+    }
+  }
 
 
   render(canvas , ctx ){

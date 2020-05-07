@@ -2,7 +2,7 @@
 var SHOOTING_VALUE = 0.7;
 
 
-/* Wolrd*/
+/* World*/
 
 var GAME_WORLD_WIDTH  = 960;
 var GAME_WORLD_HEIGHT = 560;
@@ -30,6 +30,14 @@ var PLAYER_MOVEMENT_VELOCITY = 0.5;
 
 /*Clouds movment*/
 var CLOUD_MOVEMENT_VELOCITY = 0.1;
+var CLEAR_GAP_BETWEEN_CLODS = 0.5;
+
+/*Hot Souce Sprite*/
+var HOT_SOUCE_WIDTH = 100;
+var HOT_SOUCE_HEIGHT = 100;
+var HOT_SOUCE_IMG_DIR = 'assets/TABASCOSAUCE.png';
+var HOT_SOUCE_VELOCITY = 0.3;
+
 
 
 /*Window position*/

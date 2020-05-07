@@ -13,6 +13,7 @@ class Level{
     if(playerOnePlane !== undefined)playerOnePlane.updatePlayerOne(delta);
     if(cloud !== undefined)cloud.updateClouds(delta);
     if(cloudTwo !== undefined)cloudTwo.updateClouds(delta);
+    if(hotSauceItem !== undefined)hotSauceItem.updateHotSouce(delta);
 
   }
 
@@ -26,7 +27,7 @@ class Level{
 
     canvasctx.globalAlpha = 1;
     if(playerOnePlane !== undefined)playerOnePlane.render(canvas, canvasctx);
-
+    if(hotSauceItem !== undefined)hotSauceItem.render(canvas, canvasctx);
 
 
   }

@@ -6,7 +6,7 @@ let background;
 let cloud;
 let cloudTwo;
 let playerOnePlane;
-
+let hotSauceItem;
 
 function  getAssetsLevelOne() {
   var backgroundImg = new Image();
@@ -18,8 +18,8 @@ function  getAssetsLevelOne() {
 
   var cloudImg = new Image();
   cloudImg.onload = function(){
-    cloud = new Entity(0, 0, GAME_WORLD_WIDTH , GAME_WORLD_HEIGHT, cloudImg, CLOUD_MOVEMENT_VELOCITY);
-    cloudTwo =  new Entity(GAME_WORLD_WIDTH, 0, GAME_WORLD_WIDTH , GAME_WORLD_HEIGHT, cloudImg, CLOUD_MOVEMENT_VELOCITY);
+    cloud = new Entity(0, 0, GAME_WORLD_WIDTH + CLEAR_GAP_BETWEEN_CLODS, GAME_WORLD_HEIGHT, cloudImg, CLOUD_MOVEMENT_VELOCITY);
+    cloudTwo =  new Entity(GAME_WORLD_WIDTH, 0, GAME_WORLD_WIDTH + CLEAR_GAP_BETWEEN_CLODS + 1.5, GAME_WORLD_HEIGHT, cloudImg, CLOUD_MOVEMENT_VELOCITY);
   }
   cloudImg.src = 'assets/clouds.png';
 
@@ -29,6 +29,10 @@ function  getAssetsLevelOne() {
   }
   palneImg.src = 'assets/bluePlane.png';
 
-
+  var hotSauceImg = new Image();
+  hotSauceImg.onload = function() {
+    hotSauceItem = new Entity(GAME_WORLD_WIDTH, 0, HOT_SOUCE_WIDTH , HOT_SOUCE_HEIGHT, hotSauceImg, HOT_SOUCE_VELOCITY);
+  }
+  hotSauceImg.src = HOT_SOUCE_IMG_DIR;
 
 }
