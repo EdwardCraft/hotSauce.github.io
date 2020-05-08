@@ -11,6 +11,7 @@ class Entity {
 	 6.argument = animation speed;
 	*/
 
+  /*just  a coment to commit*/
 
   constructor() {
     var data = arguments;
