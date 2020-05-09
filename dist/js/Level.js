@@ -4,7 +4,7 @@ class Level{
 
 
   constructor(){
-
+    this.selectScreen = new SelectScreen();
 
 	}
 
@@ -12,9 +12,9 @@ class Level{
 
     if(playerOnePlane !== undefined)playerOnePlane.updatePlayerOne(delta);
     if(cloud !== undefined)cloud.updateClouds(delta);
-    if(cloudTwo !== undefined)cloudTwo.updateClouds(delta);
+    if(cloudTwo !== undefined)cloudTwo.updateCloudsTwo(delta);
     if(hotSauceItem !== undefined)hotSauceItem.updateHotSouce(delta);
-
+    if(this.selectScreen !== undefined)this.selectScreen.update(delta);
   }
 
   render(canvas, canvasctx){
@@ -29,6 +29,9 @@ class Level{
     if(playerOnePlane !== undefined)playerOnePlane.render(canvas, canvasctx);
     if(hotSauceItem !== undefined)hotSauceItem.render(canvas, canvasctx);
 
+
+    canvasctx.globalAlpha = 1;
+    if(this.selectScreen !== undefined)this.selectScreen.render(canvas, canvasctx);
 
   }
 

@@ -28,7 +28,12 @@ class Entity {
   				arguments[4], arguments[5]);
         break;
 			case 7:
-
+          this.thirdConstructor(
+            arguments[0], arguments[1],
+    				arguments[2], arguments[3],
+    				arguments[4], arguments[5],
+            arguments[6]
+          );
         break;
 			case 8:
 
@@ -58,7 +63,21 @@ class Entity {
     this.statingCloudTwoPosition = GAME_WORLD_WIDTH;
     this.movementVelocityX = velocity;
     this.movementVelocityY = velocity;
+
 	}
+
+  thirdConstructor(postionX, postionY, width, height, asset , velocity, animationVelocity){
+    this.postionX = postionX;
+		this.postionY = postionY;
+		this.width = width;
+		this.height = height;
+    this.currentImg  = asset[0];
+    this.frames = asset.length;
+    this.index = 0;
+    this.count = 0;
+    this.assets = asset;
+    this.animationVelocity = animationVelocity;
+  }
 
 
   update(delta){
@@ -74,12 +93,23 @@ class Entity {
   }
 
   updateClouds(delta){
+    if((this.postionX + (this.width - CLEAR_GAP_BETWEEN_CLODS)) <=  0){
+      this.postionX = this.statingCloudTwoPosition;
+    }
+    this.postionX -= this.movementVelocityX *  delta;
+
+  }
+
+  updateCloudsTwo(delta){
     if((this.postionX + (this.width)) <=  0){
       this.postionX = this.statingCloudTwoPosition;
     }
     this.postionX -= this.movementVelocityX *  delta;
 
   }
+
+
+
 
   updateHotSouce(delta){
     if((this.postionX + this.width ) <= 0 ){
@@ -88,6 +118,12 @@ class Entity {
     this.postionX -= this.movementVelocityX *  delta;
 
   }
+
+  updateSelectedPlayer(delta){
+      this.runAnimation();
+  }
+
+
 
   getRandPositionYHotSouce(){
     var rand =  Math.floor(Math.random() * 3) + 1;
@@ -132,6 +168,34 @@ class Entity {
   setVelocityY(velocity){
     this.movementVelocityY = velocity;
   }
+
+  runAnimation(){
+		this.index++;
+		if(this.index > this.animationVelocity){
+			this.index = 0;
+			this.nextFrame();
+		}
+	}
+
+
+	nextFrame(){
+		if(this.count >= this.frames){
+			this.count = 0;
+		}
+		this.currentImg = this.assets[this.count % this.frames];
+		this.count++;
+	}
+
+  renderSelect( canvas , canvasctx){
+
+		canvasctx.drawImage(
+			this.currentImg,
+			this.postionX,
+			this.postionY
+			);
+	}
+
+
 
 
 }
