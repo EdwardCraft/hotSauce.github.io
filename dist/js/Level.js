@@ -5,7 +5,7 @@ class Level{
 
   constructor(){
     this.selectScreen = new SelectScreen();
-
+    this.isOnAnimationSelect = false;
 	}
 
   update(delta){
@@ -15,6 +15,12 @@ class Level{
     if(cloudTwo !== undefined)cloudTwo.updateCloudsTwo(delta);
     if(hotSauceItem !== undefined)hotSauceItem.updateHotSouce(delta);
     if(this.selectScreen !== undefined)this.selectScreen.update(delta);
+
+
+    if(this.isOnAnimationSelect == true){
+      this.checkForPlayerSelect();
+    }
+
   }
 
   render(canvas, canvasctx){
@@ -36,5 +42,26 @@ class Level{
   }
 
 
+  getSelectScreen(){
+    return this.selectScreen;
+  }
+
+  checkForPlayerSelect(){
+    if(redSelect != undefined){
+      if(redSelect.getEndAnimation() == true){
+        this.selectScreen  = undefined;
+      }
+    }
+
+    if(blueSelect != undefined){
+      if(blueSelect.getEndAnimation() == true){
+        this.selectScreen  = undefined;
+      }
+    }
+  }
+
+  setIsOnAnimationSelect(value){
+    this.isOnAnimationSelect = value;
+  }
 
 }

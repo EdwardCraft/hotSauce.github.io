@@ -31,8 +31,8 @@ var addSize = 0;
 var originalFontSize = fontSize;
 var fullScreen = false;
 var fullScreenSlider;
-
-
+var xCoordinates;
+var yCoordinates;
 
 // here we are going to check on what device the game is playing, and we are
 // going yo adjust the gamescreen
@@ -65,6 +65,7 @@ function startEngine(device){
 
   canvas.addEventListener("keyup", onkeyUp, false);
 	canvas.addEventListener("keypress", onkeydown, false);
+  canvas.addEventListener("mousemove", mouseoverSelectScreen, false);
 
 	/*if(device == 'canvasMobile'){
 		doOnOrientationChange();
@@ -102,9 +103,27 @@ function onClick(e){
 	yCoordinates  = (e.y / canvas.height) * canvas.height;*/
 	xCoordinates = e.pageX - canvas.offsetLeft;
 	yCoordinates = e.pageY - canvas.offsetTop;
-
 	/*console.log('new x: ', xCoordinates);
 	console.log('new y: ', yCoordinates);*/
+  if(level !== undefined){
+    if(level.getSelectScreen() !== undefined){
+      if(level.getSelectScreen().getIsOverRed() == true){
+        level.getSelectScreen().setStopMouseOver(true);
+        level.setIsOnAnimationSelect(true);
+        if(redSelect != undefined){
+          redSelect.setStartAnimation(true);
+        }
+      }else if(level.getSelectScreen().getIsOverBlue() == true){
+        level.getSelectScreen().setStopMouseOver(true);
+        level.setIsOnAnimationSelect(true);
+        if(blueSelect != undefined){
+          blueSelect.setStartAnimation(true);
+        }
+      }
+    }
+  }
+
+
 
 }
 
@@ -182,7 +201,15 @@ function onkeyUp(e) {
 
 }
 
+function mouseoverSelectScreen(e) {
+  var xCoordinates = e.pageX - canvas.offsetLeft;
+	var yCoordinates = e.pageY - canvas.offsetTop;
 
+  if(level.getSelectScreen() !== undefined){
+    level.getSelectScreen().setMouseCoordinates(xCoordinates, yCoordinates);
+  }
+
+}
 
 
 

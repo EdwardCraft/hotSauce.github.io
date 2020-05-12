@@ -77,6 +77,8 @@ class Entity {
     this.count = 0;
     this.assets = asset;
     this.animationVelocity = animationVelocity;
+    this.startAnimationSelect = false;
+    this.endAnimation = false;
   }
 
 
@@ -120,7 +122,8 @@ class Entity {
   }
 
   updateSelectedPlayer(delta){
-      this.runAnimation();
+
+      if(this.startAnimationSelect)this.runAnimation();
   }
 
 
@@ -181,6 +184,7 @@ class Entity {
 	nextFrame(){
 		if(this.count >= this.frames){
 			this.count = 0;
+      this.endAnimation = true;
 		}
 		this.currentImg = this.assets[this.count % this.frames];
 		this.count++;
@@ -191,11 +195,28 @@ class Entity {
 		canvasctx.drawImage(
 			this.currentImg,
 			this.postionX,
-			this.postionY
+			this.postionY,
+      this.width,
+      this.height
 			);
 	}
 
 
+  getBounds(){
+		return [this.postionX, this.postionY, this.width, this.height];
+	}
 
+  setCurrentImg(isOver, stopCheck){
+    if(stopCheck != true)
+      isOver == true ? this.currentImg = this.assets[1] : this.currentImg = this.assets[0];
+  }
+
+  setStartAnimation(start){
+      this.startAnimationSelect = start;
+  }
+
+  getEndAnimation(){
+    return this.endAnimation;
+  }
 
 }

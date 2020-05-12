@@ -88,11 +88,11 @@ function loadAnimationAssets(assets, object, assetArray, initializeObject){
 function createObject(object, assetsFrames) {
     switch (object) {
       case BLUE_OPTION:
-          blueSelect =  new Entity(SELECTION_IMG_OPTION_WIDTH - 55, 0, SELECTION_IMG_OPTION_WIDTH, SELECTION_IMG_OPTION_HEIGHT,
+          blueSelect =  new Entity(SELECTION_IMG_OPTION_WIDTH + 20, 100, SELECTION_IMG_OPTION_WIDTH, SELECTION_IMG_OPTION_HEIGHT,
                                       assetsFrames, 0, SELECTION_ANIMATION_VELOCITY);
         break;
       case RED_OPTION:
-          redSelect =  new Entity(0, 0, SELECTION_IMG_OPTION_WIDTH, SELECTION_IMG_OPTION_HEIGHT,
+          redSelect =  new Entity(50, 100, SELECTION_IMG_OPTION_WIDTH, SELECTION_IMG_OPTION_HEIGHT,
                                       assetsFrames, 0, SELECTION_ANIMATION_VELOCITY);
         break;
       default:
