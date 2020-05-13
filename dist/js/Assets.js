@@ -11,6 +11,9 @@ let selectScreen;
 let blueSelect;
 let redSelect;
 
+var planeRedImg;
+var palneBlueImg;
+
 var selectPlayerRedAnimation = [
   SELECTION_RED_PLAYER_IMG_ONE,
   SELECTION_RED_PLAYER_IMG_TWO,
@@ -43,11 +46,11 @@ function  getAssetsLevelOne() {
   }
   cloudImg.src = 'assets/clouds.png';
 
-  var palneImg = new Image();
-  palneImg.onload = function()  {
-    playerOnePlane = new Entity(0, 0, PLAYER_WIDTH , PLAYER_HEIGHT, palneImg, 0);
+  planeRedImg = new Image();
+  planeRedImg.onload = function()  {
+
   }
-  palneImg.src = 'assets/bluePlane.png';
+  planeRedImg.src = 'assets/bluePlane.png';
 
   var hotSauceImg = new Image();
   hotSauceImg.onload = function() {

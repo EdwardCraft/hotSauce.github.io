@@ -12,8 +12,8 @@ class SelectScreen{
   update(delta){
     if(blueSelect !== undefined)blueSelect.updateSelectedPlayer(delta);
     if(redSelect !== undefined)redSelect.updateSelectedPlayer(delta);
-    if(this.stopMouseOver != true)this.checkForMouseOverScreen();
-    if(this.stopMouseOver != true)this.checkForMouseOverScreenRed();
+    /*if(this.stopMouseOver != true)this.checkForMouseOverScreen();
+    if(this.stopMouseOver != true)this.checkForMouseOverScreenRed();*/
   }
 
   render(canvas , ctx){
@@ -84,6 +84,10 @@ class SelectScreen{
 
   setStopMouseOver(value){
     this.stopMouseOver = value;
+  }
+
+  setIsOverRed(isOverRed){
+    this.isOverRed = isOverRed;
   }
 
 

@@ -72,10 +72,13 @@ class Entity {
 		this.width = width;
 		this.height = height;
     this.currentImg  = asset[0];
-    this.frames = asset.length;
+    this.noSelectImg = asset[0];
+    this.selectedImg = asset[1];
     this.index = 0;
     this.count = 0;
-    this.assets = asset;
+    this.assets = [asset[1], asset[2], asset[1],
+                   asset[2], asset[1], asset[2]];
+    this.frames =   this.assets.length;
     this.animationVelocity = animationVelocity;
     this.startAnimationSelect = false;
     this.endAnimation = false;
@@ -208,7 +211,7 @@ class Entity {
 
   setCurrentImg(isOver, stopCheck){
     if(stopCheck != true)
-      isOver == true ? this.currentImg = this.assets[1] : this.currentImg = this.assets[0];
+      isOver == true ? this.currentImg = this.selectedImg : this.currentImg = this.noSelectImg;
   }
 
   setStartAnimation(start){

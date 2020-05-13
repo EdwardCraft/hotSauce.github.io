@@ -14,6 +14,7 @@ var W = 119;
 var S = 115;
 var A = 97;
 var D = 100;
+var ENTER = 13;
 
 
 var W_UN_SELECTED  = 87;
@@ -43,7 +44,7 @@ var BLUE_OPTION = 'BLUE';
 var RED_OPTION = 'RED';
 var SELECTION_IMG_OPTION_WIDTH = 450;
 var SELECTION_IMG_OPTION_HEIGHT= 450;
-var SELECTION_ANIMATION_VELOCITY = 10;
+var SELECTION_ANIMATION_VELOCITY = 5;
 
 /*Window position*/
 

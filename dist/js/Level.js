@@ -60,8 +60,8 @@ class Level{
     }
   }
 
-  setIsOnAnimationSelect(value){
-    this.isOnAnimationSelect = value;
+  setIsOnAnimationSelect(isOnAnimationSelect){
+    this.isOnAnimationSelect = isOnAnimationSelect;
   }
 
 }

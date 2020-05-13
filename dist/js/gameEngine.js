@@ -57,12 +57,13 @@ function startEngine(device){
 	console.log("hero from page loaded function");
 
 	canvas = document.getElementById(device);
+  canvas.focus();
 	canvasctx = canvas.getContext('2d');
 	canvasctx.font = originalFontSize +"px" + " Passion One";
 	scoreCount = 0;
 	window.addEventListener('orientationchange', doOnOrientationChange);
-	canvas.addEventListener("click", onClick, false);
 
+	canvas.addEventListener("click", onClick, false);
   canvas.addEventListener("keyup", onkeyUp, false);
 	canvas.addEventListener("keypress", onkeydown, false);
   canvas.addEventListener("mousemove", mouseoverSelectScreen, false);
@@ -86,130 +87,13 @@ function doOnOrientationChange() {
 }
 
 
-function onClick(e){
-
-	if(!startGame || e.keyCode === 13){
-		startGame = !startGame;
-		fontSize = originalFontSize;
-		canvasctx.font = fontSize + "px" + " Passion One";
-	}
-
-	if(endGame){
-		//init();
-	}
-	/*console.log('x: ', e.x);
-	console.log('y: ', e.y);*/
-	/*xCoordinates  = (e.x / canvas.width) * canvas.width;
-	yCoordinates  = (e.y / canvas.height) * canvas.height;*/
-	xCoordinates = e.pageX - canvas.offsetLeft;
-	yCoordinates = e.pageY - canvas.offsetTop;
-	/*console.log('new x: ', xCoordinates);
-	console.log('new y: ', yCoordinates);*/
-  if(level !== undefined){
-    if(level.getSelectScreen() !== undefined){
-      if(level.getSelectScreen().getIsOverRed() == true){
-        level.getSelectScreen().setStopMouseOver(true);
-        level.setIsOnAnimationSelect(true);
-        if(redSelect != undefined){
-          redSelect.setStartAnimation(true);
-        }
-      }else if(level.getSelectScreen().getIsOverBlue() == true){
-        level.getSelectScreen().setStopMouseOver(true);
-        level.setIsOnAnimationSelect(true);
-        if(blueSelect != undefined){
-          blueSelect.setStartAnimation(true);
-        }
-      }
-    }
-  }
 
 
 
-}
 
-function onkeydown(e){
-	var keyCode = e.keyCode;
 
-    if(keyCode == ESCAPE) {
-       if(fullScreen){
-       	document.getElementById('mobile').style.display = 'none';
-    		document.getElementById('desktop').style.display = 'block';
-    		//startEngine('canvasMobile');
-    		//resize();
-    		document.getElementById("fullScreen").checked = false;
-    		fullScreen = false;
-       }
-    }
 
-    //UP
-    if(keyCode === W){
-      playerOnePlane.setVelocityY(-PLAYER_MOVEMENT_VELOCITY);
-    }
 
-    //DOWN
-    if(keyCode === S){
-      if(playerOnePlane !== undefined){
-        playerOnePlane.setVelocityY(PLAYER_MOVEMENT_VELOCITY);
-      }
-    }
-
-    //LEFT
-    if(keyCode === A){
-      if(playerOnePlane !== undefined){
-        playerOnePlane.setVelocityX(-PLAYER_MOVEMENT_VELOCITY);
-      }
-    }
-
-    //RIGHT
-    if(keyCode === D){
-      if(playerOnePlane !== undefined){
-        playerOnePlane.setVelocityX(PLAYER_MOVEMENT_VELOCITY);
-      }
-
-    }
-
-}
-
-function onkeyUp(e) {
-  var keyCode = e.keyCode;
-
-  //RIGHT
-
-  if(keyCode === W_UN_SELECTED){
-    if(playerOnePlane !== undefined){
-      playerOnePlane.setVelocityY(0);
-    }
-  }
-
-  if(keyCode === S_UN_SELECTED){
-    if(playerOnePlane !== undefined){
-      playerOnePlane.setVelocityY(0);
-    }
-  }
-
-  if(keyCode === A_UN_SELECTED){
-    if(playerOnePlane !== undefined){
-      playerOnePlane.setVelocityX(0);
-    }
-  }
-
-  if(keyCode === D_UN_SELECTED){
-    if(playerOnePlane !== undefined){
-      playerOnePlane.setVelocityX(0);
-    }
-  }
-
-}
-
-function mouseoverSelectScreen(e) {
-  var xCoordinates = e.pageX - canvas.offsetLeft;
-	var yCoordinates = e.pageY - canvas.offsetTop;
-
-  if(level.getSelectScreen() !== undefined){
-    level.getSelectScreen().setMouseCoordinates(xCoordinates, yCoordinates);
-  }
-
-}
 
 
 
