@@ -30,6 +30,17 @@ var selectPlayerBlueAnimation = [
 
 var selectPlayerBlueFrames = [];
 
+var impactHotSouceAnimation = [
+  HOT_SOUCE_COLLISION_STRIPE_IMG,
+  HOT_SOUCE_COLLISION_EXPLOSION_IMG,
+  HOT_SOUCE_COLLISION_TEXT_IMG
+];
+
+var impactHotSouceFrames = [];
+
+var impactHotSouceFramesLoaded = false;
+var hotSouceImgLoaded = false;
+var hotSauceImg;
 
 function  getAssetsLevelOne() {
   var backgroundImg = new Image();
@@ -52,15 +63,16 @@ function  getAssetsLevelOne() {
   }
   planeRedImg.src = 'assets/bluePlane.png';
 
-  var hotSauceImg = new Image();
+  hotSauceImg = new Image();
   hotSauceImg.onload = function() {
     hotSauceItem = new Entity(GAME_WORLD_WIDTH, 0, HOT_SOUCE_WIDTH , HOT_SOUCE_HEIGHT, hotSauceImg, HOT_SOUCE_VELOCITY);
+    hotSouceImgLoaded = true;
   }
   hotSauceImg.src = HOT_SOUCE_IMG_DIR;
 
   loadAnimationAssets(selectPlayerRedAnimation, RED_OPTION, selectPlayerRedFrames, true);
   loadAnimationAssets(selectPlayerBlueAnimation, BLUE_OPTION, selectPlayerBlueFrames, true);
-
+  loadAnimationAssets(impactHotSouceAnimation, HOT_SOUCE_BANNER, impactHotSouceFrames, false);
 
 }
 
@@ -75,11 +87,15 @@ function loadAnimationAssets(assets, object, assetArray, initializeObject){
 		img.onload = function(){
 			++loaded;
 			if(loaded >= assets.length){
+
 				for(var i = 0; i < assetsFrames.length; i++){
 					assetArray.push(assetsFrames[i]);
 				}
+
 				if(initializeObject)
 					createObject(object, assetsFrames);
+
+        updateLoadingState(object);
 			}
 		}
 		img.src = assets[i];
@@ -101,6 +117,8 @@ function createObject(object, assetsFrames) {
       default:
 
     }
+}
 
-
+function updateLoadingState(object) {
+    if(object == HOT_SOUCE_BANNER) impactHotSouceFramesLoaded = true;
 }

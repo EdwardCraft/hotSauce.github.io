@@ -6,6 +6,8 @@ class Level{
   constructor(){
     this.selectScreen = new SelectScreen();
     this.isOnAnimationSelect = false;
+
+
 	}
 
   update(delta){
