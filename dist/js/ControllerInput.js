@@ -129,6 +129,16 @@ function onkeydown(e){
       }
     }
 
+		if(keyCode === SHOOT){
+			 if(level !== undefined){
+				 if(playerOnePlane !== undefined){
+					 level.addBullet(new Bullet((playerOnePlane.positionX  + playerOnePlane.imageWith) - ( BULLET_SHOOT_WIDTH ) ,
+					 													  ((playerOnePlane.positionY  +  (playerOnePlane.imageHeight  / 2) + 20)) - (BULLET_SHOOT_HEIGHT / 2),
+				                              BULLET_SHOOT_WIDTH, BULLET_SHOOT_HEIGHT , "", 0, BULLET_SHOOT_MOVEMENT_VELOCITY));
+				 }
+			 }
+		}
+
 }
 
 function onkeyUp(e) {

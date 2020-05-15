@@ -8,7 +8,8 @@ class AbstractEntity{
 		this.imageHeight = height;
 		this.assets = assets;
 		this.movementVelocityX = movementVelocity;
-    this.movementVelocityY = movementVelocity
+    this.movementVelocityY = movementVelocity;
+		this.movementVelocity = movementVelocity;
 		this.animationVelocity = animationVelocity;
 
 		this.frames = 0;

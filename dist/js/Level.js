@@ -7,7 +7,7 @@ class Level{
     this.selectScreen = new SelectScreen();
     this.isOnAnimationSelect = false;
     this.collision = new Collision();
-
+    this.bullets = new Array();
 
 	}
 
@@ -26,6 +26,7 @@ class Level{
 
 
     this.collision.checkCollisions();
+    this.updateBullets(delta);
   }
 
   render(canvas, canvasctx){
@@ -38,6 +39,7 @@ class Level{
 
     canvasctx.globalAlpha = 1;
     if(playerOnePlane !== undefined)playerOnePlane.render(canvas, canvasctx);
+    this.renderBullets(canvas, canvasctx);
     if(hotSauceItem !== undefined)hotSauceItem.render(canvas, canvasctx);
     if(hotSouceBanner !== undefined)hotSouceBanner.render(canvas, canvasctx);
 
@@ -65,8 +67,44 @@ class Level{
     }
   }
 
+  updateBullets(delta){
+
+    if(this.bullets !== undefined){
+      for (var i = 0; i < this.bullets.length; i++) {
+        this.bullets[i].update(delta);
+      }
+
+      for (var i = 0; i < this.bullets.length; i++) {
+        if(this.bullets[i].gettBulletOutOfScreen()){
+          this.bullets.splice(i, 1);
+        }
+      }
+
+    }
+
+
+
+  }
+
+  renderBullets(){
+    if(this.bullets !== undefined){
+      for (var i = 0; i < this.bullets.length; i++) {
+        this.bullets[i].render(canvas, canvasctx);
+      }
+    }
+  }
+
   setIsOnAnimationSelect(isOnAnimationSelect){
     this.isOnAnimationSelect = isOnAnimationSelect;
+  }
+
+  getBullets(){
+    return this.bullets;
+  }
+
+  addBullet(bullet){
+    this.bullets.push(bullet);
+    console.log("bullet array size: " + this.bullets.length);
   }
 
 }

@@ -14,6 +14,7 @@ var W = 119;
 var S = 115;
 var A = 97;
 var D = 100;
+var SHOOT = 106;
 var ENTER = 13;
 
 
@@ -36,8 +37,15 @@ var CLEAR_GAP_BETWEEN_CLODS = 1.5;
 /*Hot Souce */
 var HOT_SOUCE_WIDTH = 100;
 var HOT_SOUCE_HEIGHT = 100;
-
 var HOT_SOUCE_VELOCITY = 0.3;
+
+/*Bullet */
+var BULLET_SHOOT_POSITION_X = 0;
+var BULLET_SHOOT_POSITION_Y = 0;
+var BULLET_SHOOT_MOVEMENT_VELOCITY = 1;
+var BULLET_SHOOT_WIDTH = 10;
+var BULLET_SHOOT_HEIGHT = 10;
+
 
 /*Selection screen */
 var BLUE_OPTION = 'BLUE';

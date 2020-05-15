@@ -200,5 +200,5 @@ function clearScreen(leftX, topY, width, height, color){
 
 function initial() {
   level = new Level();
-  
+
 }
