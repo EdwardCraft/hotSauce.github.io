@@ -60,13 +60,13 @@ function onkeydown(e){
 
     //UP
     if(keyCode === W){
-      playerOnePlane.setVelocityY(-PLAYER_MOVEMENT_VELOCITY);
+      playerOnePlane.setMovementVelocityY(-PLAYER_MOVEMENT_VELOCITY);
     }
 
     //DOWN
     if(keyCode === S){
       if(playerOnePlane !== undefined){
-        playerOnePlane.setVelocityY(PLAYER_MOVEMENT_VELOCITY);
+        playerOnePlane.setMovementVelocityY(PLAYER_MOVEMENT_VELOCITY);
       }
     }
 
@@ -74,7 +74,7 @@ function onkeydown(e){
     if(keyCode === A){
 
       if(playerOnePlane !== undefined){
-        playerOnePlane.setVelocityX(-PLAYER_MOVEMENT_VELOCITY);
+        playerOnePlane.setMovementVelocityX(-PLAYER_MOVEMENT_VELOCITY);
       }
 
       if(level !== undefined){
@@ -93,7 +93,7 @@ function onkeydown(e){
     //RIGHT
     if(keyCode === D){
       if(playerOnePlane !== undefined){
-        playerOnePlane.setVelocityX(PLAYER_MOVEMENT_VELOCITY);
+        playerOnePlane.setMovementVelocityX(PLAYER_MOVEMENT_VELOCITY);
       }
 
       if(level !== undefined){
@@ -115,13 +115,13 @@ function onkeydown(e){
             level.setIsOnAnimationSelect(true);
             if(redSelect != undefined){
               redSelect.setStartAnimation(true);
-              playerOnePlane = new Entity(0, 0, PLAYER_WIDTH , PLAYER_HEIGHT, planeRedImg, 0);
+              playerOnePlane = new Player(0, 0, PLAYER_WIDTH , PLAYER_HEIGHT, planeRedImg, 0, 0);
             }
           }else{
             level.setIsOnAnimationSelect(true);
             if(blueSelect != undefined){
               blueSelect.setStartAnimation(true);
-              playerOnePlane = new Entity(0, 0, PLAYER_WIDTH , PLAYER_HEIGHT, planeRedImg, 0);
+              playerOnePlane = new Player(0, 0, PLAYER_WIDTH , PLAYER_HEIGHT, planeRedImg, 0, 0);
             }
           }
 
@@ -138,25 +138,25 @@ function onkeyUp(e) {
 
   if(keyCode === W_UN_SELECTED){
     if(playerOnePlane !== undefined){
-      playerOnePlane.setVelocityY(0);
+      playerOnePlane.setMovementVelocityY(0);
     }
   }
 
   if(keyCode === S_UN_SELECTED){
     if(playerOnePlane !== undefined){
-      playerOnePlane.setVelocityY(0);
+      playerOnePlane.setMovementVelocityY(0);
     }
   }
 
   if(keyCode === A_UN_SELECTED){
     if(playerOnePlane !== undefined){
-      playerOnePlane.setVelocityX(0);
+      playerOnePlane.setMovementVelocityX(0);
     }
   }
 
   if(keyCode === D_UN_SELECTED){
     if(playerOnePlane !== undefined){
-      playerOnePlane.setVelocityX(0);
+      playerOnePlane.setMovementVelocityX(0);
     }
   }
 

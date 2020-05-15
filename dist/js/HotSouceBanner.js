@@ -37,8 +37,10 @@ class HotSouceBanner{
     this.explosionImgWidthLimit = EXPLOSION_IMG_RESIZE_WIDTH_LIMIT;
     this.explosionImgHeightLimit = EXPLOSION_IMG_RESIZE_HEIGHT_LIMIT;
     this.explosionImgResizeVelocity = EXPLOSION_IMG_RESIZE_VELOCITY;
+    this.explosinResizeReach = false;
 
-
+    this.timer = 0;
+    this.endTimer = 600;
   }
 
   update(delta){
@@ -48,13 +50,15 @@ class HotSouceBanner{
     this.resizeTextOverLay(delta);
     this.resizeBottleImg(delta);
     this.resizeExplosion(delta);
+    this.delayToUndefined(delta);
+
   }
 
   resiceBannerWidth(delta){
     if(impactHotSouceFramesLoaded){
         if(this.widthBanner >= -this.widthBannerLimit){
           this.widthBanner -= delta * this.widthBannerUpdateVelocity;
-          console.log(  this.widthBanner );
+
         }else{
           this.widthBannerLimitReach = true;
         }
@@ -96,15 +100,30 @@ class HotSouceBanner{
 
           this.explosionImgPositionX -= (delta * (this.explosionImgResizeVelocity  + 0.7)) / 2;
 
+        }else{
+          this.explosinResizeReach = true;
         }
 
         if((this.explosionImgHeight <= this.explosionImgHeightLimit)){
           this.explosionImgHeight += delta * this.explosionImgResizeVelocity;
           this.explosionImgPositionY -= (delta * this.explosionImgResizeVelocity) / 2;
 
+        }else{
+            this.explosinResizeReach = true;
         }
       }
     }
+  }
+
+  delayToUndefined(delta){
+     if(this.explosinResizeReach){
+       if(this.timer <= this.endTimer){
+         this.timer += delta;
+       }else{
+         hotSouceBanner = undefined;
+       }
+     }
+
   }
 
 

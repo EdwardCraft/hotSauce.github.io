@@ -10,7 +10,7 @@ let hotSauceItem;
 let selectScreen;
 let blueSelect;
 let redSelect;
-
+let hotSouceBanner;
 var planeRedImg;
 var palneBlueImg;
 
@@ -65,7 +65,7 @@ function  getAssetsLevelOne() {
 
   hotSauceImg = new Image();
   hotSauceImg.onload = function() {
-    hotSauceItem = new Entity(GAME_WORLD_WIDTH, 0, HOT_SOUCE_WIDTH , HOT_SOUCE_HEIGHT, hotSauceImg, HOT_SOUCE_VELOCITY);
+    hotSauceItem = new HotBottle(GAME_WORLD_WIDTH, 0, HOT_SOUCE_WIDTH , HOT_SOUCE_HEIGHT, hotSauceImg, 0, HOT_SOUCE_VELOCITY);
     hotSouceImgLoaded = true;
   }
   hotSauceImg.src = HOT_SOUCE_IMG_DIR;

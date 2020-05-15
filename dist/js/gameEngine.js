@@ -173,7 +173,7 @@ function update(update){
   if(level !== undefined )
     level.update(update);
 
-  if(hotSouceBanner != undefined)hotSouceBanner.update(update);
+
 }
 
 
@@ -184,7 +184,7 @@ function render() {
     if(level !== undefined )
         level.render(canvas, canvasctx);
 
-    if(hotSouceBanner != undefined)hotSouceBanner.render(canvas, canvasctx);
+
 }
 
 
@@ -200,5 +200,5 @@ function clearScreen(leftX, topY, width, height, color){
 
 function initial() {
   level = new Level();
-  hotSouceBanner = new HotSouceBanner();
+  
 }

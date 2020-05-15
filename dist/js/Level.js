@@ -6,23 +6,26 @@ class Level{
   constructor(){
     this.selectScreen = new SelectScreen();
     this.isOnAnimationSelect = false;
+    this.collision = new Collision();
 
 
 	}
 
   update(delta){
 
-    if(playerOnePlane !== undefined)playerOnePlane.updatePlayerOne(delta);
+    if(playerOnePlane !== undefined)playerOnePlane.update(delta);
     if(cloud !== undefined)cloud.updateClouds(delta);
     if(cloudTwo !== undefined)cloudTwo.updateCloudsTwo(delta);
-    if(hotSauceItem !== undefined)hotSauceItem.updateHotSouce(delta);
+    if(hotSauceItem !== undefined)hotSauceItem.update(delta);
     if(this.selectScreen !== undefined)this.selectScreen.update(delta);
-
+    if(hotSouceBanner !== undefined)hotSouceBanner.update(delta);
 
     if(this.isOnAnimationSelect == true){
       this.checkForPlayerSelect();
     }
 
+
+    this.collision.checkCollisions();
   }
 
   render(canvas, canvasctx){
@@ -36,7 +39,7 @@ class Level{
     canvasctx.globalAlpha = 1;
     if(playerOnePlane !== undefined)playerOnePlane.render(canvas, canvasctx);
     if(hotSauceItem !== undefined)hotSauceItem.render(canvas, canvasctx);
-
+    if(hotSouceBanner !== undefined)hotSouceBanner.render(canvas, canvasctx);
 
     canvasctx.globalAlpha = 1;
     if(this.selectScreen !== undefined)this.selectScreen.render(canvas, canvasctx);
