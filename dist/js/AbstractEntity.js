@@ -17,7 +17,7 @@ class AbstractEntity{
 		this.endLoop = false;
 		this.currentImg = new Image();
 		this.index = 0;
-
+		this.scoreCount = 0;
 		this.health = 1;
 		this.second = 0;
 
@@ -53,7 +53,8 @@ class AbstractEntity{
 	setHealth(health){this.health = health;}
 	getHealth(){return this.health;}
 
-
+	setScoreCount(scoreCount){this.scoreCount = scoreCount;}
+	getScoreCount(){return this.scoreCount;}
 
 
 	getBounds(){

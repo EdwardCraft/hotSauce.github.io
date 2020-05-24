@@ -10,6 +10,8 @@ function onClick(e){
 
 	if(endGame){
 		//init();
+		initial();
+		
 	}
 	/*console.log('x: ', e.x);
 	console.log('y: ', e.y);*/
@@ -60,7 +62,10 @@ function onkeydown(e){
 
     //UP
     if(keyCode === W){
-      playerOnePlane.setMovementVelocityY(-PLAYER_MOVEMENT_VELOCITY);
+			if(playerOnePlane != undefined){
+				playerOnePlane.setMovementVelocityY(-PLAYER_MOVEMENT_VELOCITY);
+			}
+
     }
 
     //DOWN

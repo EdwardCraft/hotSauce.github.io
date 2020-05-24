@@ -200,5 +200,12 @@ function clearScreen(leftX, topY, width, height, color){
 
 function initial() {
   level = new Level();
-
+  endGame = false;
+  playerOnePlane = undefined;
+  if(isloadedBlueSelect){
+    blueSelect =  new Entity(SELECTION_IMG_OPTION_WIDTH + 20, 100, SELECTION_IMG_OPTION_WIDTH, SELECTION_IMG_OPTION_HEIGHT,
+                                selectPlayerBlueFrames, 0, SELECTION_ANIMATION_VELOCITY);
+    redSelect =  new Entity(50, 100, SELECTION_IMG_OPTION_WIDTH, SELECTION_IMG_OPTION_HEIGHT,
+                                                            selectPlayerRedFrames, 0, SELECTION_ANIMATION_VELOCITY);
+  }
 }

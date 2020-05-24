@@ -9,10 +9,19 @@ let playerOnePlane;
 let hotSauceItem;
 let selectScreen;
 let blueSelect;
+var isloadedBlueSelect = false;
 let redSelect;
 let hotSouceBanner;
+
+
 var planeRedImg;
 var palneBlueImg;
+
+var food_img_1;
+var food_img_2;
+var food_img_3;
+var food_img_4;
+var food_img_5;
 
 var selectPlayerRedAnimation = [
   SELECTION_RED_PLAYER_IMG_ONE,
@@ -70,6 +79,37 @@ function  getAssetsLevelOne() {
   }
   hotSauceImg.src = HOT_SOUCE_IMG_DIR;
 
+
+  food_img_1 = new Image();
+  food_img_1.onload = function() {
+
+  }
+  food_img_1.src = PIZZA_IMG;
+
+  food_img_2 = new Image();
+  food_img_2.onload = function() {
+
+  }
+  food_img_2.src = SUSHI_IMG;
+
+  food_img_3 = new Image();
+  food_img_3.onload = function() {
+
+  }
+  food_img_3.src = BREAD_IMG;
+
+  food_img_4 = new Image();
+  food_img_4.onload = function() {
+
+  }
+  food_img_4.src = HABURGUESA_IMG;
+
+  food_img_5 = new Image();
+  food_img_5.onload = function() {
+
+  }
+  food_img_5.src = BOWL_IMG;
+
   loadAnimationAssets(selectPlayerRedAnimation, RED_OPTION, selectPlayerRedFrames, true);
   loadAnimationAssets(selectPlayerBlueAnimation, BLUE_OPTION, selectPlayerBlueFrames, true);
   loadAnimationAssets(impactHotSouceAnimation, HOT_SOUCE_BANNER, impactHotSouceFrames, false);
@@ -107,6 +147,7 @@ function loadAnimationAssets(assets, object, assetArray, initializeObject){
 function createObject(object, assetsFrames) {
     switch (object) {
       case BLUE_OPTION:
+          isloadedBlueSelect = true;
           blueSelect =  new Entity(SELECTION_IMG_OPTION_WIDTH + 20, 100, SELECTION_IMG_OPTION_WIDTH, SELECTION_IMG_OPTION_HEIGHT,
                                       assetsFrames, 0, SELECTION_ANIMATION_VELOCITY);
         break;
