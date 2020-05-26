@@ -8,15 +8,22 @@ class Level{
     this.scoreScreen = new ScoreScreen([0, 0], 0, 0);
     this.isOnAnimationSelect = false;
     this.collision = new Collision();
+    this.pauseScreen = new PauseScreen();
     this.bullets = new Array();
     this.foods = new Array();
     this.addFood( Math.floor(Math.random() * FOOD_MOVE_VELOCITY) + 1);
     this.addFood( Math.floor(Math.random() * FOOD_MOVE_VELOCITY) + 1);
     this.addFood( Math.floor(Math.random() * FOOD_MOVE_VELOCITY) + 1);
     this.startGame = false;
+    this.pauseGame = false;
 	}
 
   update(delta){
+
+    if(this.pauseGame)
+      return;
+
+
 
     if(playerOnePlane !== undefined ){
 
@@ -29,6 +36,7 @@ class Level{
         if(hotSouceBanner !== undefined)hotSouceBanner.update(delta);
         if(this.scoreScreen !== undefined)this.scoreScreen.update(delta);
 
+        if(this.pauseScreen !== undefined)this.pauseScreen .update(delta);
 
 
         this.collision.checkCollisions();
@@ -41,6 +49,7 @@ class Level{
     if(this.isOnAnimationSelect == true){
       this.checkForPlayerSelect();
     }
+
 
   }
 
@@ -61,6 +70,10 @@ class Level{
     if(this.scoreScreen !== undefined)this.scoreScreen.render(canvas, canvasctx);
     canvasctx.globalAlpha = 1;
     if(this.selectScreen !== undefined)this.selectScreen.render(canvas, canvasctx);
+
+    if(this.pauseGame)
+      if(this.pauseScreen !== undefined)this.pauseScreen .render(canvas, canvasctx);
+
 
   }
 
@@ -202,6 +215,13 @@ class Level{
     }
   }
 
+  getFocusCanvas(){
+    return  this.pauseGame;
+  }
+
+  setFocusCanvas(pauseGame){
+    this.pauseGame =  pauseGame;
+  }
 
 
 }

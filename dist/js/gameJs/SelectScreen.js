@@ -17,6 +17,14 @@ class SelectScreen{
   }
 
   render(canvas , ctx){
+      ctx.font = 80 +"px" + " Passion One";
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 8;
+      ctx.strokeText("SELECT  A  PLAYER" ,
+                              (GAME_WORLD_WIDTH /2) - 260, 100);
+      ctx.fillStyle = '#FFA4EE';
+      ctx.fillText("SELECT  A  PLAYER" ,
+                             (GAME_WORLD_WIDTH /2)  - 260, 100);
       if(blueSelect !== undefined)blueSelect.renderSelect(canvas, canvasctx);
       if(redSelect !== undefined)redSelect.renderSelect(canvas, canvasctx);
   }

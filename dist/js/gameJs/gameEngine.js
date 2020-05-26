@@ -2,7 +2,7 @@
 
 var canvas;
 var canvasctx;
-
+var body;
 
 //  variables to setup the game engine
 var FPS = 60;
@@ -26,6 +26,7 @@ var started = false;
 var frameID = 0;
 let loadingScreen;
 let level;
+var isPuase = false;
 
 //game variables
 var fontSize = 35;
@@ -60,6 +61,7 @@ function startEngine(device){
 	console.log("hero from page loaded function");
 
 	canvas = document.getElementById(device);
+  body = document.getElementById('container');
   canvas.focus();
 	canvasctx = canvas.getContext('2d');
 	canvasctx.font = originalFontSize +"px" + " Passion One";
@@ -67,6 +69,7 @@ function startEngine(device){
 	window.addEventListener('orientationchange', doOnOrientationChange);
 
 	canvas.addEventListener("click", onClick, false);
+  body.addEventListener("click", onClickPause, false);
   canvas.addEventListener("keyup", onkeyUp, false);
 	canvas.addEventListener("keypress", onkeydown, false);
   canvas.addEventListener("mousemove", mouseoverSelectScreen, false);
@@ -194,6 +197,7 @@ function render() {
 
   	//clear background
     clearScreen(0, 0, canvas.width, canvas.height, 'black');
+
     if(level !== undefined )
         level.render(canvas, canvasctx);
 

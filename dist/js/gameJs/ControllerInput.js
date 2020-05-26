@@ -11,8 +11,13 @@ function onClick(e){
 	if(endGame){
 		//init();
 		initial();
-		
+
 	}
+
+
+
+
+
 	/*console.log('x: ', e.x);
 	console.log('y: ', e.y);*/
 	/*xCoordinates  = (e.x / canvas.width) * canvas.width;
@@ -45,6 +50,23 @@ function onClick(e){
 
 }
 
+
+function onClickPause(e) {
+	var elementCanvas =  document.getElementById('canvas');
+	var targetElement = e.target;
+
+
+	if(elementCanvas === targetElement){
+		console.log("hello");
+		level.setFocusCanvas(false);
+	}else{
+		if(level !== undefined){
+			level.setFocusCanvas(true);
+		}
+		console.log("afuera");
+	}
+
+}
 
 function onkeydown(e){
 	var keyCode = e.keyCode;

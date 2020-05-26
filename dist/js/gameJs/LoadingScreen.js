@@ -46,10 +46,10 @@ class LoadingScreen{
 
        if(!this.showPinkColor){
           if(this.stroke > 30){
-            this.stroke -=  0.2 * delta;
+            this.stroke -=  0.5 * delta;
           }
 
-          console.log(this.stroke);
+    
        }
 
        if(this.offsetHeight + 15 >= GAME_WORLD_HEIGHT &&   this.showPinkColor){

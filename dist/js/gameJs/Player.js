@@ -19,6 +19,22 @@ class Player extends AbstractEntity{
     this.positionX += this.movementVelocityX *  delta;
     this.positionY += this.movementVelocityY *  delta;
 
+    if(this.positionX <= 0){
+      this.positionX = 0;
+    }
+
+    if((this.positionX + this.imageWith) >= GAME_WORLD_WIDTH){
+      this.positionX = GAME_WORLD_WIDTH - this.imageWith;
+    }
+
+    if(this.positionY <= -50){
+      this.positionY = -50;
+    }
+
+    if((this.positionY + this.imageHeight) >= GAME_WORLD_HEIGHT){
+      this.positionY = GAME_WORLD_HEIGHT - this.imageHeight;
+    }
+
 
     if(this.isHit)this.hitAnimation(delta);
     this.isOver();
