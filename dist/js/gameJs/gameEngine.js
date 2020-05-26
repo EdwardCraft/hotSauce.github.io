@@ -24,6 +24,8 @@ var endGame = false;
 var running = false;
 var started = false;
 var frameID = 0;
+let loadingScreen;
+let level;
 
 //game variables
 var fontSize = 35;
@@ -33,6 +35,7 @@ var fullScreen = false;
 var fullScreenSlider;
 var xCoordinates;
 var yCoordinates;
+
 
 // here we are going to check on what device the game is playing, and we are
 // going yo adjust the gamescreen
@@ -120,7 +123,9 @@ function start(){
 		});
 
 
-    initial();
+    loadTheGame();
+    //star the  loading Screen
+
 
 	}
 }
@@ -170,8 +175,16 @@ function rebuild(){
 
 
 function update(update){
-  if(level !== undefined )
+
+
+    if(loadingScreen !== undefined){
+      loadingScreen.update(update);
+    }
+
+   if(level !== undefined )
     level.update(update);
+
+
 
 
 }
@@ -184,6 +197,9 @@ function render() {
     if(level !== undefined )
         level.render(canvas, canvasctx);
 
+    if(loadingScreen !== undefined){
+      loadingScreen.render(canvas, canvasctx);
+    }
 
 }
 
@@ -195,10 +211,13 @@ function clearScreen(leftX, topY, width, height, color){
 
 }
 
-
+function loadTheGame(){
+  loadingScreen = new LoadingScreen();
+}
 
 
 function initial() {
+
   level = new Level();
   endGame = false;
   playerOnePlane = undefined;
