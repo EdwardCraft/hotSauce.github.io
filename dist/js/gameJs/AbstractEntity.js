@@ -39,7 +39,7 @@ class AbstractEntity{
 
 	getMovementVelocityX(){return this.movementVelocityX;}
 	setMovementVelocityX(movementVelocityX){this.movementVelocityX = movementVelocityX;}
-  getMovementVelocityY(){return this.movementVelocityY;}
+    getMovementVelocityY(){return this.movementVelocityY;}
 	setMovementVelocityY(movementVelocityY){this.movementVelocityY = movementVelocityY;}
 
 	getAnimationVelocity(){return animationVelocity;}

@@ -10,9 +10,28 @@ boby{
 
 }
 
-
+#control{
+	top: 180%; /* IMPORTANT */
+    left: 70%; /* IMPORTANT */
+    display: block;
+    position: absolute;
+    margin-top: -208.5px; /* HALF OF THE HEIGHT */
+    margin-left: -325px; /* HALF OF THE WIDTH */
+}
 
 #desktop{
 
+	top: 35%; /* IMPORTANT */
+    left: 45%; /* IMPORTANT */
+    display: block;
+    position: absolute;
+    width: 750px;
+    height: 417px;
+
+    margin-top: -208.5px; /* HALF OF THE HEIGHT */
+    margin-left: -375px; /* HALF OF THE WIDTH */
 
 }
+
+
+

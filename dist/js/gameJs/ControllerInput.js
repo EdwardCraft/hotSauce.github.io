@@ -70,7 +70,7 @@ function onClickPause(e) {
 
 function onkeydown(e){
 	var keyCode = e.keyCode;
-
+  console.log(keyCode);
     if(keyCode == ESCAPE) {
        if(fullScreen){
        	document.getElementById('mobile').style.display = 'none';
@@ -134,7 +134,7 @@ function onkeydown(e){
       }
     }
 
-    if(keyCode === ENTER){
+    if(keyCode === ENTER || keyCode === SHOOT){
       if(level !== undefined){
         if(level.getSelectScreen() !== undefined){
 
