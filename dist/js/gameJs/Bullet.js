@@ -14,6 +14,7 @@ class Bullet extends AbstractEntity{
     this.bulletOutOfScreen = false;
     this.visible = true;
     this.outOfWindow = GAME_WORLD_WIDTH;
+
   }
 
 
@@ -38,7 +39,7 @@ class Bullet extends AbstractEntity{
 
   render(canvas, ctx){
     if(this.visible){
-      ctx.fillStyle = "#FF0000";
+      ctx.fillStyle =this.randomColor();
       ctx.fillRect(
         this.positionX,
         this.positionY,
@@ -47,6 +48,20 @@ class Bullet extends AbstractEntity{
         );
     }
 
+  }
+
+  randomColor() {
+    let colors = []
+    for (var i = 0; i < 3; i++) {
+      let hex = this.randomMe(256).toString(16);
+      colors[i] = ('0' + String(hex)).substr(-2);
+    }
+
+    return '#'+ colors[0] + colors[1] + colors[2]; 
+  }
+
+  randomMe(argument) {
+    return Math.floor(Math.random() * argument);
   }
 
   gettBulletOutOfScreen(){

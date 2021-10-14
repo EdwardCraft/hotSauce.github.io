@@ -124,3 +124,5 @@ var HABURGUESA_IMG = 'assets/HAMBAGA.png';
 var SUSHI_IMG = 'assets/SUSHI.png';
 var BREAD_IMG = 'assets/IDUNUWHATISDIS.png';
 var BOWL_IMG = 'assets/BOWLNOODLE.png';
+
+const POWER_COLORS = ["#FF7575","#FF75FF","#7E75FF","#75EDFF","#75FF90","#F7FF75"];
