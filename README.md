@@ -1,7 +1,7 @@
 # HotSouce JavaScript Game
 
 Welcome to HotSouce, an JavaScript game that will test your skills and challenge your reflexes!
-
+Play here: https://edwardcraft.github.io/js-hotsouce-game/
 ## Overview
 
 HotSouce is a simple game built with JavaScript. The objective is to interact with the game elements to achieve the highest score possible.
